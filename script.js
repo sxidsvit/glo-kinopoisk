@@ -42,7 +42,7 @@ function requestApi(method, url) {
       console.log("nameItem : " + nameItem);
       inner += `
         <div class="col-12 col-md-4  mb-5">
-          <div class="card">cd Glo-Kinopoisk
+          <div class="card">
             ${img}
             <div class="card-body">  
              <h5 class="card-title text-success text-center">${nameItem}</h5>
