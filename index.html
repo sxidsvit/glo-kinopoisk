@@ -23,23 +23,15 @@
 </head>
 
 <body>
-  <nav class="navber ">
-    <div class="container mb-3 d-flex justify-content-center">
-      <a href="./" class="navbar-brand ">Glo-Kinopoisk</a>
-    </div>
+  <nav class="navbar navbar-dark bg-dark justify-content-around mb-5">
+    <a href="./" class="navbar-brand ">Glo-Kinopoisk</a>
+    <form id="search-form" class="form-inline">
+      <input type="search" class="form-control mr-3" id='serchText' placeholder="Название фильма ">
+      <button class="btn btn-outline-success my-2 my-sm-0 animated infinite pulse slower" type="submit"
+        id="btn">Найти</button>
+    </form>
+    <div class="text-center text-white">Поиск фильмов</div>
   </nav>
-  <div class="container mb-5">
-    <div class="jumbotron">
-      <h1 class="text-center mb-3">Поиск фильмов</h1>
-      <div class="d-flex justify-content-center">
-        <form id="search-form" class="form-inline">
-          <input type="search" class="form-control mr-sm-2" id='serchText' placeholder="Название фильма ">
-          <button class="btn btn-outline-success my-2 my-sm-0 animated infinite pulse slower" type="submit"
-            id="btn">Найти</button>
-        </form>
-      </вш>
-    </div>
-  </div>
 
   <div class="container">
     <div id="movies" class="row"></div>
