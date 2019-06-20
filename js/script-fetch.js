@@ -92,6 +92,8 @@ const cutText = (str, num, str2) => {
   else return str;
 }
 
+// ------------ Show full info -----------------------
+
 function showFullInfo() {
   let url = ''
   if (this.dataset.type === 'movie') {
@@ -115,21 +117,23 @@ function showFullInfo() {
       movie.innerHTML = `
       <h2 class="col-12 text-center text-info mb-5" >${output.name || output.title}</h2 >
       
-      <div class ="col-4"> 
-       <img src = "${imgHost}${output.poster_path}"class=" img-fluid img-thumbnail" alt = "${output.title || output.name}"  >
-       ${(output.homepage) ? `<p class="text-center"> <a href="${output.homepage}" target="_blank">Официальная страница</a></p>` : ''}
-       ${(output.imdb_id) ? `<p class="text-center"> <a href="https://www.imdb.com/title/${output.imdb_id}" target="_blank">Страница на www.imdb.com</a></p>` : ''}
-      </div>
-      <div class ="col-8"> 
-      <p>Рейтинг: ${output.vote_average}</p>
-      <p>Статус: ${output.status}</p>
-      <p>Премьера: ${output.first_air_date || output.release_date}</p>
+      <div class ="col-4 bg-light p-5"> 
+       <img src = "${imgHost}${output.poster_path}"class=" img-fluid img-thumbnail mb-2" alt = "${output.title || output.name}"  >
 
-      ${(output.last_episode_to_air) ? `<p>${output.number_of_seasons} сезон. Вышло ${output.last_episode_to_air.episode_number} серий </p>` : ''}
+       ${(output.homepage) ? `<p class="text-center text-info mb-2"> <a href="${output.homepage}" target="_blank">Официальная страница</a></p>` : ''}
 
-      <p>Описание: ${output.overview} </p>
+       ${(output.imdb_id) ? `<p class="text-center text-info mb-2"> <a href="https://www.imdb.com/title/${output.imdb_id}" target="_blank">Страница на www.imdb.com</a></p>` : ''}
       </div>
-s
+
+      <div class ="col-8 bg-light p-5"> 
+      <p class="badge badge-danger p-3">Рейтинг: ${output.vote_average}</p>
+      <p class="badge badge-info p-3">Статус: ${output.status}</p>
+      <p class="badge badge-success p-3">Премьера: ${output.first_air_date || output.release_date}</p>
+
+      ${(output.last_episode_to_air) ? `<p class="badge badge-warning p-3">${output.number_of_seasons} сезон. Вышло ${output.last_episode_to_air.episode_number} серий </p>` : ''}
+
+      <div class="mt-5">${output.overview} </div>
+      </div>
       `
     })
     .catch((reason) => {
