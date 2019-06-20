@@ -8,25 +8,41 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <title>Glo-Kinopoisk</title>
+  <style>
+    .card:hover {
+      box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important;
+      transition: ease 0.4s;
+    }
+
+    #movies {
+      display: flex;
+      justify-content: center;
+      align-items: top;
+    }
+  </style>
 </head>
 
 <body>
-  <nav class="navbar">
-    <div class="container">
-      <a href="index.html" class="navbar-brand"></a>
+  <nav class="navber ">
+    <div class="container mb-3 d-flex justify-content-center">
+      <a href="./" class="navbar-brand ">Glo-Kinopoisk</a>
     </div>
   </nav>
-  <div class="container">
+  <div class="container mb-5">
     <div class="jumbotron">
-      <div class="text-center">Поиск фильмов</div>
-      <form action="" id="search-form">
-        <input type="text" class="form-control" id='serchText' placeholder="Введите название ...">
-      </form>
-
-      <div id="container">
-        <div id="movies" class="row"></div>
-      </div>
+      <h1 class="text-center mb-3">Поиск фильмов</h1>
+      <div class="d-flex justify-content-center">
+        <form id="search-form" class="form-inline">
+          <input type="search" class="form-control mr-sm-2" id='serchText' placeholder="Название фильма ">
+          <button class="btn btn-outline-success my-2 my-sm-0 animated infinite pulse slower" type="submit"
+            id="btn">Найти</button>
+        </form>
+      </вш>
     </div>
+  </div>
+
+  <div class="container">
+    <div id="movies" class="row"></div>
   </div>
   <script src="./script-fetch.js"></script>
 </body>
