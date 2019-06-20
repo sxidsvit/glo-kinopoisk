@@ -25,6 +25,7 @@
 
 <body>
   <nav class="navbar navbar-dark bg-dark justify-content-around mb-5">
+    <div class="container">
     <a href="./" class="navbar-brand ">Glo-Kinopoisk</a>
     <form id="search-form" class="form-inline">
       <input type="search" class="form-control mr-3" id='serchText' placeholder="Название фильма ">
@@ -32,12 +33,13 @@
         id="btn">Найти</button>
     </form>
     <div class="text-center text-white">Поиск фильмов</div>
+    </div>
   </nav>
 
   <div class="container">
     <div id="movies" class="row"></div>
   </div>
-  <script src="./script-fetch.js"></script>
+  <script src="./js/script-fetch.js"></script>
 </body>
 
 </html>
