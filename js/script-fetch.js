@@ -103,7 +103,6 @@ function showFullInfo() {
   } else {
     movie.innerHTML = '<h2 class="col-12 text-center text-danger">Произошла ошибка. Повторите запрос позже </h2>'
   }
-  console.log(url);
 
   fetch(url)
     .then(function (value) {
@@ -114,6 +113,10 @@ function showFullInfo() {
     })
     .then(function (output) {
       console.dir(output)
+      let genres = '';
+      output.genres.forEach((genre) => { genres += genre.name + ', '})
+      genres = genres.substr(0, genres.length - 2)
+
       movie.innerHTML = `
       <h2 class="col-12 text-center text-info mb-5" >${output.name || output.title}</h2 >
       
@@ -131,9 +134,10 @@ function showFullInfo() {
       <p class="badge badge-success p-3">Премьера: ${output.first_air_date || output.release_date}</p>
 
       ${(output.last_episode_to_air) ? `<p class="badge badge-warning p-3">${output.number_of_seasons} сезон. Вышло ${output.last_episode_to_air.episode_number} серий </p>` : ''}
-
+      <p class="badge badge-info p-3">Жанр: ${genres}</p>
       <div class="mt-5">${output.overview} </div>
       </div>
+
       `
     })
     .catch((reason) => {
