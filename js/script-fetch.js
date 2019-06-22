@@ -137,8 +137,6 @@ function showFullInfo() {
     movie.innerHTML = '<h2 class="col-12 text-center text-danger">Произошла ошибка. Повторите запрос позже </h2>'
   }
 
-  const mediaType = this.dataset.type;
-
   fetch(url)
     .then(function (value) {
       if (value.status !== 200) {
@@ -146,7 +144,7 @@ function showFullInfo() {
       }
       return value.json();
     })
-    .then(function (output) {
+    .then( (output) => {
 
       let genres = '',
         nameItem = output.name || output.title,
@@ -178,7 +176,7 @@ function showFullInfo() {
       <div class='youtube'></div>
       `;
 
-      getVideo(mediaType, output.id)
+      getVideo(this.dataset.type, this.dataset.id)
 
     })
     .catch(function (reason) {
