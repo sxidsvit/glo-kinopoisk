@@ -7,7 +7,6 @@ const imgHost = 'https://image.tmdb.org/t/p/w500';
 const apiKey = 'f2136ccacb0977dc008d5ea49c768321';
 const trends = `${apiHost}/3/trending/all/day?api_key=${apiKey}&language=ru`
 
-
 // --------------------------- Movie search ------------------
 
 const apiSearch = (event) => {
