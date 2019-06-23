@@ -144,7 +144,7 @@ function showFullInfo() {
       }
       return value.json();
     })
-    .then( (output) => {
+    .then((output) => {
 
       let genres = '',
         nameItem = output.name || output.title,
@@ -169,7 +169,7 @@ function showFullInfo() {
       <p class="badge badge-success p-3">Премьера: ${output.first_air_date || output.release_date}</p>
 
       ${(output.last_episode_to_air) ? `<p class="badge badge-warning p-3">${output.number_of_seasons} сезон. Вышло ${output.last_episode_to_air.episode_number} серий </p>` : ''}
-      ${(genres.length != 0) ? `<p class="badge badge-info p-3">Жанр: ${genres}</p>` : '' }
+      ${(genres.length != 0) ? `<p class="badge badge-info p-3">Жанр: ${genres}</p>` : ''}
       ${(output.overview.length != 0) ? `<div class="mt-5">${output.overview} </div>` : `<h4 class="col-12 text-center text-danger mt-5"> Информация о фильме отсутствует </h4>`}
       </div>
       <br>
@@ -206,20 +206,20 @@ const getVideo = (type, id) => {
   let yotube = movie.querySelector('.youtube')
 
   fetch(`${apiHost}/3/${type}/${id}/videos?api_key=${apiKey}&language=ru`)
-    .then( (value) => {
+    .then((value) => {
       if (value.status !== 200) {
         return Promise.reject(new Error(value.status));
       }
       return value.json();
     })
-    .then( (output) => {
+    .then((output) => {
       let videoFrame = '<h4 class="col-12 text-center text-info mt-5 mb-5" > Фрагменты из видео </h4 >'
 
-       if(output.results.length === 0) {
-         videoFrame = '<h4 class="col-12 text-center text-danger mt-5 mb-5"> К сожалению видео отсутствует </h4>'
-       }
+      if (output.results.length === 0) {
+        videoFrame = '<h4 class="col-12 text-center text-danger mt-5 mb-5"> К сожалению видео отсутствует </h4>'
+      }
 
-      output.results.forEach(( item ) => {
+      output.results.forEach((item) => {
         console.log(item.site)
         if (item.site == "YouTube") {
           videoFrame += `<iframe width="560" height="315" src="https://www.youtube.com/embed/${item.key}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>` + ' ';
@@ -227,7 +227,7 @@ const getVideo = (type, id) => {
       })
 
       yotube.innerHTML = videoFrame;
-    
+
     })
     .catch((reason) => {
       yotube.innerHTML = 'Видео отсутствует!';
